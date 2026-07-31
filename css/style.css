@@ -6,7 +6,7 @@ html {
 
 :root {
     --primary-bg-color:#1C1C1C;
-    --primary-color: #8f0ea0; 
+    --primary-color: #5e0b69;
 }
 
 *{
@@ -22,20 +22,37 @@ body{
     flex-direction: column;
 }
 .background {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
     background-image: url(../img/background.jpg);
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay{
-    background-color: rgba(43, 43, 43, 0.8);
-    inset: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.8);
+    pointer-events: none;
+    z-index: 0;
+}
+
+header,main,footer{
+    z-index: 2;
+    position:relative;
 }
 
 main{
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
 }
+
 .navbar {
     display: flex;
     position: sticky;
@@ -63,8 +80,26 @@ main{
 
 .nav-list li a:hover {
     color: var(--primary-color);
-            /* Change the color on hover */
+    text-decoration: underline;
+    /* Change the color on hover */
 }
+
+footer{
+    height: 3.5rem;
+}
+
+.footer-text {
+    font-size: 1.5rem;
+    padding: 3.5rem;
+    color: white;
+    text-align: center;
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+           /*  ----------  MAIN PAGE  ----------  */
 
 .content{
     display: flex;
@@ -95,37 +130,73 @@ main{
     text-align: center;
 }
 
+#btns-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+    margin-top: 7rem;
+}
+
+#github-btn{
+    font-size: 2.5rem;
+    background-color: rgb(15, 15, 15);  
+    border: 4px solid rgb(15, 15, 15);  
+    border-radius: 2rem;
+    color: white;    
+    padding: 1.5rem 3.2rem;    
+    text-align: center;    
+    text-decoration: none;    
+    display: flex;    
+    cursor: pointer;
+    width: fit-content;
+}
+
+#github-btn:hover{
+    background-color: transparent;  
+    border: 4px solid white;  
+}
+
 #view-btn{
     font-size: 2.5rem;
-    background-color: transparent; /* Green */  
+    background-color: transparent;  
     border: 4px solid var(--primary-color);  
     border-radius: 2rem;
     color: var(--primary-color);    
     padding: 1.5rem 3.2rem;    
     text-align: center;    
     text-decoration: none;    
-    display: block;    
+    display: flex;    
     cursor: pointer;
-    place-items: center;
-    margin: 7rem auto auto auto;
     width: fit-content;
-    /*margin-left: auto;
-    margin-right: auto;*/
 }
 
-footer {
-    font-size: 1.5rem;
-    padding: 3.5rem;
+#view-btn:hover{
+
+    background-color: var(--primary-color);
     color: white;
-    text-align: center;
-    background-color: transparent;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
+            /*  ----------  ABOUT PAGE  ----------  */
 
-/*   Animation         */
+.about-content{
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
+
+.page-header{
+    color: white;
+    font-size: 3rem;
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+}
+
+.page-par{
+    color: white;
+    font-size: 1.8rem;
+}
+
+            /*  ----------  ANIMATION  ----------  */
 
 @keyframes blink {
     50% { border-color: transparent }
@@ -136,14 +207,53 @@ footer {
     to {width: 15ch}
 }
 
-/*    Madia Styles      */ 
+         /*  ----------  MEDIA STYLES  ----------  */ 
 
 /*Modile*/
-@media (max-width: 768px) {    
-    
+@media (max-width: 767px) {    
+    html{
+        font-size: 52%;
+    }
+
+    #hello-text{
+        width: 100%;
+        max-width: 8ch;
+        font-size: 6.5rem;
+        white-space: normal;
+        margin-top: 10vh;
+    }
+
+    #btns-container{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+   .about-content{
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    .page-header{
+        color: white;
+        font-size: 3rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+    }
 }
 
 /*Tablet*/
-@media (max-width: 1024px) {    
+@media (min-width: 768px) and (max-width: 1023px) {    
     
+    #hello-text{
+        font-size: 6.2rem;
+    }
+
+    #welcome-text{
+        font-size: 1.9rem;
+    }
+
+    .about-content{
+        margin-left: 15rem;
+        margin-right: 15rem;
+    }
 }
