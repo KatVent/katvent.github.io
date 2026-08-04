@@ -1,7 +1,8 @@
-html {
+html,body {
     font-size: 62.5%;
     font-family: 'Montserrat', sans-serif;
     height: 100%;
+   
 }
 
 :root {
@@ -14,47 +15,50 @@ html {
     padding: 0;
     box-sizing: border-box;
 }
-
-body{
-    overflow: hidden;
-    min-height: 100vh;
+header{
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
-.background {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    background-image: url(../img/background.jpg);
-    background-size: cover;
-    background-position: center;
-}
-
-.overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+body{
     height: 100%;
-    background-color: rgba(20, 20, 20, 0.8);
-    pointer-events: none;
-    z-index: 0;
+   
 }
 
 header,main,footer{
     z-index: 2;
-    position:relative;
+   position: relative;
+}
+main{
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    
 }
 
-main{
+.background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    overflow: scroll;
+    overflow: hidden;
+}
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(20, 20, 20, 0.8);
+    z-index: 0;
 }
 
 .navbar {
     display: flex;
+    width: 100%;
     position: sticky;
     align-items: center;
     justify-content: center;
@@ -85,18 +89,14 @@ main{
 }
 
 footer{
-    height: 3.5rem;
-}
-
-.footer-text {
-    font-size: 1.5rem;
-    padding: 3.5rem;
+    height: 5rem;
+    background: transparent;
     color: white;
-    text-align: center;
-    background-color: transparent;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
 }
 
            /*  ----------  MAIN PAGE  ----------  */
@@ -172,14 +172,13 @@ footer{
 }
 
 #view-btn:hover{
-
     background-color: var(--primary-color);
     color: white;
 }
 
-            /*  ----------  ABOUT PAGE  ----------  */
+            /*  ----------  GENERIC  ----------  */
 
-.about-content{
+.page-content{
     margin-left: 25rem;
     margin-right: 25rem;
 }
@@ -187,14 +186,152 @@ footer{
 .page-header{
     color: white;
     font-size: 3rem;
-    margin-top: 8rem;
+    margin-top: 7rem;
     margin-bottom: 3rem;
+    text-align: left;
 }
 
 .page-par{
     color: white;
     font-size: 1.8rem;
+    margin-bottom: 1rem;
+    text-align: left;
 }
+
+.code-par{
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.page-h3{
+    font-size: 2.5rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.page-h4{
+    font-size: 2.2rem;
+    color: white;
+    text-align: left;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.page-h5{
+    font-size: 2rem;
+    color: white;
+    text-align: left;
+    margin-top: 2.2rem;
+    margin-bottom: 0.7rem;
+}
+
+.page-h6{
+    font-size: 1.8rem;
+    color: white;
+    text-align: left;
+    margin-top: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.ext-links{
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+
+}
+            /*  ----------  PROJECTS PAGE  ---------- */
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main-title{
+    color: white;
+    font-size: 3rem;
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.project-card{
+    width: 25rem;
+    height: 30rem;    
+    background: #383838;
+    background: linear-gradient(143deg,rgba(40, 40, 40, 1) 60%, rgba(40, 40, 40, 0) 100%) padding-box,
+    linear-gradient(142deg,rgba(94, 11, 105, 1)0%, rgba(94, 11, 105, 0.54)38%,rgba(94, 11, 105, 0)100%) border-box;
+    margin: 5rem 3rem 2.5rem 3rem;  
+    border-radius: 5%;
+    border: 4px solid transparent;
+    
+}
+
+
+.project-name{
+    color: white;
+    font-size: 2.2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.project-type{
+    color: white;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.project-desc{
+    color: white;
+    font-size: 1.4rem;
+    margin: 2rem ;
+    text-align: center;
+    
+}
+
+.view-project-btn{
+    color: white;
+    font-size: 1.6rem;
+    background-color: var(--primary-bg-color);  
+    text-align: center;    
+    display: block;
+    width: fit-content;
+    margin: 4rem auto;
+    border-radius: 1.1rem;
+    padding: 1rem 2.2rem;    
+    text-decoration: none;      
+    cursor: pointer;
+}
+
+.view-project-btn:hover{
+    border: 2px solid white;
+}
+
+            /*  ----------  PROJECT DETAILS  ----------  */
+table{
+    margin: 3rem auto 3rem auto;
+}
+
+th, td{
+    color: white;
+    font-size: 1.6rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-weight: 400;
+    padding: 1rem;
+    
+}
+
+
 
             /*  ----------  ANIMATION  ----------  */
 
@@ -229,7 +366,7 @@ footer{
         
     }
 
-   .about-content{
+   .page-content{
         margin-left: 3rem;
         margin-right: 3rem;
     }
@@ -238,6 +375,10 @@ footer{
         font-size: 3rem;
         margin-top: 5rem;
         margin-bottom: 2rem;
+    }
+
+    .project-card{
+        margin: 5rem 1.5rem 1.5rem 1.5rem;
     }
 }
 
@@ -255,5 +396,14 @@ footer{
     .about-content{
         margin-left: 15rem;
         margin-right: 15rem;
+    }
+
+    .cards{
+        width: 90%;
+        
+    }
+
+    .project-card{
+        margin: 5rem 1.5rem 1.5rem 1.5rem;
     }
 }

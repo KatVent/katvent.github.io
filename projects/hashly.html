@@ -1,26 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hashly</title>
+    <title>Katia Ventouri</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
-        <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="cv.html">CV</a></li>
-        </ul>
-    </nav>
+    <div class="background">
+            <div class="overlay"></div>
+            <header>
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../projects.html">Projects</a></li>
+                        <li><a href="../cv.html">CV</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="page-content">
+                    <h1 class="page-header">Hashly - CLI Tool</h1>
+                    <p class="page-par">A simple Python CLI tool to hash text or files using different
+                        algorithms. Built with argparse. The  purpose of this project 
+                        wasn't only to complete a specific action, but also to 
+                        learn how a CLI-tool is been developed.
+                    </p>
+                    <p class="page-par">
+                        With hashly, we can hash text and files via the terminal using the following algorithms:
+                    </p>
+                    <table>
+                        <tr>
+                            <th>Blake2b</th>
+                            <th>Blake2s</th>
+                            <th>MD5</th>
+                            <th>SHA1</th>
+                        </tr>
+                        <tr>
+                            <th>SHA224</th>
+                            <th>SHA256</th>
+                            <th>SHA384</th>
+                            <th>SHA3_224</th>
+                        </tr>
+                        <tr>
+                            <th>SHA3_256</th>
+                            <th>SHA3_384</th>
+                            <th>SHA3_512</th>
+                            <th>SHA512</th>
+                        </tr>
+                        <tr>
+                            <th>SHAKE_128</th>
+                            <th>SHAKE_256</th>
+                        </tr>
+                    </table>
+
+                    <h3 class="page-h3">How To Install</h3>
+                    <p class="page-par">For the installation, we need Python 3.10 or newer. After that, we can install this in a virtual environment or install it globally. </p>
+                    <h4 class="page-h4">Option 1: Run inside a virtual environment</h4>
+                    <h5 class="page-h5">Create virtual environment</h5>
+                    <p class="code-par">
+                        git clone https://github.com/KatVent/hashly.git
+                        cd hashly
+                        python -m venv .venv
+                    </p>
+                  
+                    <h5 class="page-h5">Activate virtual environment based on the OS</h5>
+                        <code  class="code-par">
+                            source .venv/bin/activate # For macOS / Linux
+                            .venv\Scripts\Activate.ps1  # For Windows (Powershell)
+                        </code>
+                    <h5 class="page-h5">Install the package</h5>
+                        <code class="code-par">pip install .</code>
+                    <h4 class="page-h4">Option 2: Install globally</h4>
+                        <code class="code-par">
+                            pip install pipx # if not installed
+                            pipx install hashly                            
+                        </code>
+                    <h3 class="page-h3">Usage</h3>
+
+                    <p class="code-par">
+                        Usage: hashly [command] (input) --alg [choice]
+                    </p>
+                    <p class="code-par">
+                        Command: 
+                        string      Choose string to hash 
+                        file        Choose file or path to hash
+                    </p> 
+                    </p>
+                    <p class="code-par">
+                        Choice:
+                        blake2b, blake2s, md5, sha1, sha224, sha256, sha384, sha3_224, sha3_256,
+                        sha3_384, sha3_512, sha512, shake_128, shake_256
+                    </p>
+                    <p class="code-par">
+                        Examples:   
+                        hashly string "Hello World" --alg md5
+                        hashly file file.txt --alg sha1
+                    </p>
+            
+                    <h6 class="page-h6">Links</h6>
+                    <p class="ext-links">Link to Github: <a href="https://github.com/KatVent/hashly">Click Here</a></p>
+                    <p class="ext-links">Link to PyPI: <a href="https://pypi.org/project/hashly/">Click Here</a></p>
+
+                </div>
+            </main>
+            
+            <footer>
+                <p class="footer-text">© Katia Ventouri</p>
+            </footer>
+        </div>
     
-    <h1>Hashly - CLI Tool</h1>
-    <p>A simple Python CLI tool to hash text or files using different
-        algorithms. Built with Typer. The  purpose of this project 
-        wasn't only to complete a specific action, but also to 
-        learn how a CLI-tool is been developed.
-    </p>
-    <p>Link to Github: <a href="https://github.com/KatVent/hashly">https://github.com/KatVent/hashly</a></p>
+    
 </body>
 </html>
