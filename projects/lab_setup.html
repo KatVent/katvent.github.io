@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cybersecurity Home Lab & SIEM</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+            <div class="overlay"></div>
+            <header>
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../projects.html">Projects</a></li>
+                        <li><a href="../cv.html">CV</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="page-content">
+                    <h1 class="page-header">Cybersecurity Home Lab & SIEM</h1>
+                    <p class="page-par">A cybersecurity home lab, built to practice log collection, monitoring, and threat detection against an Active Directory Domain.
+                        The lab runs on three physical hosts, network-isolated from home network, so traffic stays to the lab segment.
+                    </p>
+                    <h3 class="page-h3">Tech Stack</h3>
+                    <p class="page-par">
+                        <b>SIEM/Log Analysis:</b> ELK Stack (Elasticsearch, Logstash, Kibana) in Docker <br>
+                        <b>Log Shipping:</b> Winlogbeat <br>
+                        <b>Identity:</b> Active Directory Domain Services, Windows Server 2025 <br>
+                        <b>Endpoints:</b> Windows 10 (x2) <br>
+                        <b>Virtualization:</b> VirtualBox(bridged networking) <br>
+                        <b>Networking:</b> Segmented subnets (192.168.10.0/24 for lab, 192.168.1.0/24 for home) <br>
+
+                    </p>
+                    <h3 class="page-h3">Architecture</h3>
+                    <p class="page-par">
+                        The lab sits on its own subnet (192.168.10.0/24), seperated from the home network (192.168.1.0/24).
+                        One physical host runs the ELK Stack in Docker as the central log store
+                        and dashboard layer. The second host runs VirtualBox, hosting a Windows Server 2025 VM configured as an 
+                        Active Directory domain controller, alongside Client02(Windows 10) VM joined to the domain. A third physical
+                        host also runs VirtualBox, hosting Client01(Windows 10), also domain-joined, giving two independent endpoints 
+                        to generate and compare activity from. VirtualBox's networking is configured (bridged, so the VMs get real 
+                        addresses on the 192.168.10.0/24 lab subnet) so each VM behaves like a distinct machine.
+                    </p>
+                    <h3 class="page-h3">Log pipeline</h3>
+                    <p class="page-par">
+                        Each Windows machine - the domain controller and both clients - runs Winlogbeat, shipping Security, System, 
+                        and Application eventt logs to the ELK host. From there, Elasticsearch indexes the events and Kibana provides
+                        the interface used to investigate activity across the domain.
+                    </p>
+
+                </div>
+            </main>
+            
+            <footer>
+                <p class="footer-text">© Katia Ventouri</p>
+            </footer>
+        </div>
