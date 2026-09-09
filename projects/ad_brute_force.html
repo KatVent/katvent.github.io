@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AD </title>
+        <link rel="stylesheet" href="../css/style.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+            <div class="overlay"></div>
+            <header>
+                <nav class="navbar">
+                    <ul class="nav-list">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li><a href="../projects.html">Projects</a></li>
+                        <li><a href="../cv.html">CV</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="page-content">
+                    <h1 class="page-header">Suspicious Active Directory Authentication Attempts</h1>
+                    <h3 class="page-h3">Summary</h3>
+                    <p class="page-par">
+                        The activity was generated intentionally as part a controlled cybersecurity 
+                        exercise. <br>
+
+                        Multiple failed authentication attempts where detected against an Active Directory
+                        user account. The authentication attempts originated from a Kali Linux machine and 
+                        resulted in the account being locked out.
+                    </p>
+                    <h3 class="page-h3">Detection</h3>
+                    <h5 class="page-h5">Detection Rule</h5>
+                    <p class="page-par">Multiple Failed Windows Authentication</p>
+                    <h5 class="page-h5">Detection Condition</h5>
+                    <p class="page-par">
+                        - Checks for Event ID : 4625 (Failed Logon) <br>
+                        - More than 4 failed attempts within 5 minutes. <br> 
+                        - Target account identified <br>
+                        - Source IP identified <br>
+                    </p>
+                    <h3 class="page-h3">Environment</h3>
+                    <p class="page-par">
+                        <b>Attacker Machine:</b>Kali Linux <br>
+                        <b>Domain Controller:</b>Windows Server 2025 <br>
+                        <b>SIEM:</b>ELK Stack 8.11 <br>
+                        <b>Log Collector:</b>WinlogBeat <br>
+                        <b>Network:</b>Lab Environment <br>
+                        <b>Account:</b>labuser1 <br>
+                    </p>
+                    <h5 class="page-h5">Security Configuration - Account Lockout Policy</h5>
+                    <p class="page-par">
+                        An Active Directory account lockout policy was configured to simulate a 
+                        real-world defensive control against repeated authentication failures. <br>
+                        The policy was configured to: <br>
+                        - <b>Account lockout threshold:</b> 5 invalid login attempts <br>
+                        - <b>Account lockout duration:</b> 5 minutes <br>
+                        - <b>Reset account lockout counter after:</b> 5 minutes <br>
+
+                        The policy was applied to the ;ab environmentbefore conducting the authentication test.
+                    </p>
+                    <h3 class="page-h3">Timeline</h3>
+                    <p class="page-par">
+                        <table>
+                        <tr>
+                            <th><b>Time</b></th>
+                            <th><b>Event</b></th>
+                            <th><b>Description</b></th>
+                        </tr>
+                        <tr>
+                            <th>01:03:41.729</th>
+                            <th>4625</th>
+                            <th>Failed authentication attempt</th>
+                        </tr>
+                        <tr>
+                            <th>01:03:53.018</th>
+                            <th>4625</th>
+                            <th>Failed authentication attempt</th>
+                        </tr>
+                        <tr>
+                            <th>01:04:47.001</th>
+                            <th>4625</th>
+                            <th>Failed authentication attempt</th>
+                        </tr>
+                        <tr>
+                            <th>01:04:56.681</th>
+                            <th>4625</th>
+                            <th>Failed authentication attempt</th>
+                        </tr>
+                        <tr>
+                            <th>01:05:04.903</th>
+                            <th>4740</th>
+                            <th>Target account locked out</th>
+                        </tr>
+                        <tr>
+                            <th>01:05:04.906</th>
+                            <th>4625</th>
+                            <th>Failed authentication attempt</th>
+                        </tr>
+                    </table>
+                    </p>
+                    <h3 class="page-h3">Authentication Details</h3>
+                    <p class="page-par">
+                        <b>Target User:</b> labuser1 <br>
+                        <b>Target Domain:</b> LAB<br>
+                        <b>Source Computer:</b> Kali <br>
+                        <b>Source IP:</b> 192.168.1.14 <br>
+                        <b>Destination Host:</b> DC01 <br>
+                        <b>Logon Type:</b> 3 <br>
+                        <b>Authentication Package:</b> NTLM <br>
+                        <b>Failure Status:</b> 0xC000006D <br>
+                        <b>Failure Substatus:</b> 0x000006A <br>
+                    </p>
+                    <h3 class="page-h3">Investigation</h3>
+                    <p class="page-par">
+                        The SIEM logs were reviewed to determine the target and the source of
+                        the authentication attempts. Event ID 4625 confirmed that authentication attempts failed. The events
+                        were correlated with Event ID 4740, which confirmed that the targeted 
+                        account was subsequently locked out. The `CallerComputerName` field in Event ID 4740 identified Kali as the computer
+                        associated with the lockout-causing authentication attempts. <br> 
+                    </p>
+            </main>
+            
+            <footer>
+                <p class="footer-text">© Katia Ventouri</p>
+            </footer>
+        </div>
+    
+    
+</body>
+</html>0
