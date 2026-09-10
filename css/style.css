@@ -268,8 +268,8 @@ footer{
 }
 
 .project-card{
-    width: 25rem;
-    height: 30rem;    
+    width: 28rem;
+    height: 33rem;    
     background: #383838;
     background: linear-gradient(143deg,rgba(40, 40, 40, 1) 60%, rgba(40, 40, 40, 0) 100%) padding-box,
     linear-gradient(142deg,rgba(94, 11, 105, 1)0%, rgba(94, 11, 105, 0.54)38%,rgba(94, 11, 105, 0)100%) border-box;
@@ -312,7 +312,7 @@ footer{
     /*margin: 4rem auto;*/
     left: 50%;
     transform: translateX(-50%);
-    bottom: 4rem;
+    bottom: 2rem;
     border-radius: 1.1rem;
     padding: 1rem 2.2rem;    
     text-decoration: none;      
@@ -339,6 +339,11 @@ th, td{
     
 }
 
+.image-size{
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
 
 
             /*  ----------  ANIMATION  ----------  */

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>AD </title>
+    <title>Suspicious Active Directory Authentication Attempts</title>
         <link rel="stylesheet" href="../css/style.css">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -125,6 +125,20 @@
                         account was subsequently locked out. The `CallerComputerName` field in Event ID 4740 identified Kali as the computer
                         associated with the lockout-causing authentication attempts. <br> 
                     </p>
+                    <h3 class="page-h3">Investigation Screenshots</h3>
+                    <h5 class="page-h5">Account Lockout Policy Configuration</h5>
+                    <img class="image-size" src="../img/ad_authentication_attempts/group_policy.png" alt="Account Lockout Policy Configuration">
+                    <h5 class="page-h5">Failed Authentication Events</h5>
+                    <img class="image-size" src="../img/ad_authentication_attempts/event_id_4625.png" alt="Events ID 4625">
+                    <img class="image-size" src="../img/ad_authentication_attempts/event_info.png" alt="Some information about the event id 4625">
+                    <h5 class="page-h5">Account Lockout Event</h5>
+                    <img class="image-size" src="../img/ad_authentication_attempts/event_id_4740.png" alt="Event ID 4740">
+                    <img class="image-size" src="../img/ad_authentication_attempts/event_4740_info.png" alt="Some information about the event id 4740">
+                    <h5 class="page-h5">SIEM Detection Rule</h5>
+                    <img class="image-size" src="../img/ad_authentication_attempts/rule.png" alt="SIEM Detection Rule">
+                    <h5 class="page-h5">SIEM Alert</h5>
+                    <img class="image-size" src="../img/ad_authentication_attempts/alert.png" alt="SIEM Alert">
+                </div>
             </main>
             
             <footer>
@@ -134,4 +148,4 @@
     
     
 </body>
-</html>0
+</html>
